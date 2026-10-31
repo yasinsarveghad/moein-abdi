@@ -2,10 +2,10 @@ import fs from 'node:fs';import path from 'node:path';import {routes,pages,artic
 const root=new URL('..',import.meta.url).pathname;
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.webp':'image/webp','.woff2':'font/woff2','.ttf':'font/ttf','.pdf':'application/pdf','.xml':'application/xml','.txt':'text/plain'};
 const assets={};const add=(key,bytes,type)=>assets[key]={base64:Buffer.from(bytes).toString('base64'),type};
-for(const file of ['app.js','content.js','interaction.js','media.js','style.css','inter-regular.woff2','inter-semibold.woff2','arabic.ttf','favicon.svg'])add('/assets/'+file,fs.readFileSync(path.join(root,'src',file)),mime[path.extname(file)]);
+for(const file of ['app.js','content.js','interaction.js','crop.js','media.js','style.css','inter-regular.woff2','inter-semibold.woff2','arabic.ttf','favicon.svg'])add('/assets/'+file,fs.readFileSync(path.join(root,'src',file)),mime[path.extname(file)]);
 
 for(const file of fs.readdirSync(path.join(root,'src/photos')))if(file.endsWith('.webp'))add('/assets/photos/'+file,fs.readFileSync(path.join(root,'src/photos',file)),mime['.webp']);
-for(const file of ['moein-logo.svg','favicon.svg','favicon-32.png','favicon-192.png','apple-touch-icon.png'])if(fs.existsSync(path.join(root,'src',file)))add('/assets/'+file,fs.readFileSync(path.join(root,'src',file)),file.endsWith('.png')?'image/png':mime['.svg']);
+for(const file of ['ma-icon.svg','ma-icon-32.png','ma-icon-192.png','ma-apple-touch-icon.png','moein-logo.svg','favicon.svg','favicon-32.png','favicon-192.png','apple-touch-icon.png'])if(fs.existsSync(path.join(root,'src',file)))add('/assets/'+file,fs.readFileSync(path.join(root,'src',file)),file.endsWith('.png')?'image/png':mime['.svg']);
 add('/favicon.ico',fs.readFileSync(path.join(root,'src/favicon.ico')),'image/x-icon');
 const template=fs.readFileSync(path.join(root,'src/index.html'),'utf8');const base='https://moein-abdi-athlete.titanaraino.chatgpt.site';
 const all=['/',...Object.keys(pages),...articles.map(a=>'/journal/'+a.slug)];

@@ -1,3 +1,4 @@
+import {initializeSubjectCrops} from '/assets/crop.js';
 import {photos,media} from '/assets/media.js';
 import {arrowIcon,languagePicker,initializeLanguagePicker,initializeMotion} from '/assets/interaction.js';
 import {routes,pages,articles} from '/assets/content.js';
@@ -9,7 +10,7 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const link=(p,label,cls='')=>`<a class="${cls}" href="${url(p)}">${label}</a>`;
 const pill=(p,label,black=false)=>link(p,`<span class="button-label">${label}</span><span class="arrow" aria-hidden="true">${arrowIcon}</span>`,`pill${black?' black':''}`);
 const tag=label=>`<span class="tag">(${label})</span>`;
-const image=(id,sizes='(max-width: 809px) 100vw, 550px',priority=false)=>{const m=media[id];return `<img src="${m.src}" srcset="${m.small} 540w, ${m.src} ${m.width}w" sizes="${sizes}" alt="${t(m.alt)}" ${priority?'fetchpriority="high" loading="eager"':'loading="lazy"'} decoding="async" width="${m.width}" height="${m.height}" style="--photo-position:${m.position}">`};
+const image=(id,sizes='(max-width: 809px) 100vw, 550px',priority=false)=>{const m=media[id];return `<img src="${m.src}" srcset="${m.small} 540w, ${m.src} ${m.width}w" sizes="${sizes}" alt="${t(m.alt)}" data-subject="${m.head.join(',')}" ${priority?'fetchpriority="high" loading="eager"':'loading="lazy"'} decoding="async" width="${m.width}" height="${m.height}" style="--photo-position:${m.position}">`};
 const photo=(title='',copy='',extra='',id='rider-portrait')=>`<div class="photo-tile photo-${id} ${extra}">${image(id)}${title?`<div class="tile-copy"><h3>${title}</h3>${copy?`<p>${copy}</p>`:''}</div>`:''}</div>`;
 const heroMedia=()=>({'/':'hero-rock','/about':'summit','/racing':'race-start','/national-team':'summit','/achievements':'finish','/performance':'race-dust','/coaching':'forest-ride','/coaching/plans':'forest-pause','/book':'sunset','/sponsorship':'summit-mono','/gallery':'race-rock','/journal':'forest-ride','/contact':'sunset'}[path]||'race-start');
 const logo=(cls='')=>`<img class="athlete-logo ${cls}" src="/assets/moein-logo.svg" alt="${t('Moein Abdi — MA monogram','معین عبدی — شعار MA')}" width="196" height="56">`;
@@ -100,6 +101,7 @@ addEventListener('resize',()=>{if(innerWidth>=1200&&!menu.hidden)closeMenu()},{p
 menu.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMenu();return}if(e.key!=='Tab')return;const list=[...menu.querySelectorAll('a,button')],first=list[0],last=list.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}});
 document.addEventListener('click',e=>{document.querySelectorAll('.nav-disclosure[open]').forEach(x=>{if(!x.contains(e.target))x.open=false})});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.nav-disclosure').forEach(x=>x.open=false)});
+initializeSubjectCrops();
 initializeLanguagePicker();
 initializeMotion();
 const tabCopy=[t('Build confidence through deliberate technical practice. Discuss cornering, line choice, climbing, and control in a coaching approach matched to your experience.','ابنِ الثقة بالممارسة التقنية الواعية. ناقش الانعطاف واختيار المسار والصعود والتحكم ضمن نهج يناسب خبرتك.'),t('Give every session a purpose. Discuss a training direction that fits your current riding, available time, recovery, and goals.','امنح كل حصة هدفاً. ناقش اتجاهاً تدريبياً يناسب خبرتك الحالية ووقتك وتعافيك وأهدافك.'),t('Prepare with the demands of cross-country in mind. Explore pacing, technical readiness, and an appropriate approach to your next competitive goal.','استعد وفق متطلبات الكروس كانتري. ناقش توزيع الجهد والجاهزية التقنية والنهج المناسب لهدفك التنافسي القادم.')];

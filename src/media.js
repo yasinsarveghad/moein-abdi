@@ -281,3 +281,6 @@ export const photos=[
   }
 ];
 export const media=Object.fromEntries(photos.map(p=>[p.id,p]));
+
+const subjectBounds={"sunset": [0.3, 0.12, 0.87, 0.39], "coach": [0.2, 0.02, 0.78, 0.52], "trail": [0.04, 0.27, 0.55, 0.59], "summit": [0.25, 0.12, 0.49, 0.27], "forest-pause": [0.4, 0.26, 0.62, 0.4], "forest-ride": [0.43, 0.5, 0.6, 0.62], "road": [0.37, 0.25, 0.57, 0.4], "summit-mono": [0.34, 0.18, 0.51, 0.3], "training-ride": [0.34, 0.14, 0.61, 0.31], "summit-sign": [0.25, 0.25, 0.44, 0.37], "road-climb": [0.3, 0.1, 0.6, 0.33], "race-dust": [0.4, 0.1, 0.63, 0.24], "rider-portrait": [0.33, 0.05, 0.58, 0.28], "race-moment": [0.22, 0.15, 0.42, 0.33], "race-group": [0.44, 0.29, 0.64, 0.42], "hero-rock": [0.42, 0.205, 0.59, 0.345], "race-candid": [0.34, 0.23, 0.64, 0.46], "finish": [0.39, 0.29, 0.63, 0.44], "race-start": [0.39, 0.08, 0.61, 0.48], "race-rock": [0.42, 0.12, 0.62, 0.31]};
+photos.forEach(photo=>photo.head=subjectBounds[photo.id]);
