@@ -1,6 +1,12 @@
 export const photos=[
   {
     "id": "sunset",
+    "head": [
+      0.3,
+      0.12,
+      0.87,
+      0.39
+    ],
     "src": "/assets/photos/sunset.webp",
     "small": "/assets/photos/sunset-small.webp",
     "width": 853,
@@ -15,6 +21,12 @@ export const photos=[
   },
   {
     "id": "coach",
+    "head": [
+      0.2,
+      0.02,
+      0.78,
+      0.52
+    ],
     "src": "/assets/photos/coach.webp",
     "small": "/assets/photos/coach-small.webp",
     "width": 1044,
@@ -29,6 +41,12 @@ export const photos=[
   },
   {
     "id": "trail",
+    "head": [
+      0.04,
+      0.27,
+      0.55,
+      0.59
+    ],
     "src": "/assets/photos/trail.webp",
     "small": "/assets/photos/trail-small.webp",
     "width": 1086,
@@ -43,6 +61,12 @@ export const photos=[
   },
   {
     "id": "summit",
+    "head": [
+      0.25,
+      0.12,
+      0.49,
+      0.27
+    ],
     "src": "/assets/photos/summit.webp",
     "small": "/assets/photos/summit-small.webp",
     "width": 1086,
@@ -57,6 +81,12 @@ export const photos=[
   },
   {
     "id": "forest-pause",
+    "head": [
+      0.4,
+      0.26,
+      0.62,
+      0.4
+    ],
     "src": "/assets/photos/forest-pause.webp",
     "small": "/assets/photos/forest-pause-small.webp",
     "width": 1100,
@@ -71,6 +101,12 @@ export const photos=[
   },
   {
     "id": "forest-ride",
+    "head": [
+      0.43,
+      0.5,
+      0.6,
+      0.62
+    ],
     "src": "/assets/photos/forest-ride.webp",
     "small": "/assets/photos/forest-ride-small.webp",
     "width": 1100,
@@ -85,6 +121,12 @@ export const photos=[
   },
   {
     "id": "road",
+    "head": [
+      0.37,
+      0.25,
+      0.57,
+      0.4
+    ],
     "src": "/assets/photos/road.webp",
     "small": "/assets/photos/road-small.webp",
     "width": 1100,
@@ -99,6 +141,12 @@ export const photos=[
   },
   {
     "id": "summit-mono",
+    "head": [
+      0.34,
+      0.18,
+      0.51,
+      0.3
+    ],
     "src": "/assets/photos/summit-mono.webp",
     "small": "/assets/photos/summit-mono-small.webp",
     "width": 1100,
@@ -113,6 +161,12 @@ export const photos=[
   },
   {
     "id": "training-ride",
+    "head": [
+      0.34,
+      0.14,
+      0.61,
+      0.31
+    ],
     "src": "/assets/photos/training-ride.webp",
     "small": "/assets/photos/training-ride-small.webp",
     "width": 1080,
@@ -127,6 +181,12 @@ export const photos=[
   },
   {
     "id": "summit-sign",
+    "head": [
+      0.25,
+      0.25,
+      0.44,
+      0.37
+    ],
     "src": "/assets/photos/summit-sign.webp",
     "small": "/assets/photos/summit-sign-small.webp",
     "width": 1100,
@@ -141,6 +201,12 @@ export const photos=[
   },
   {
     "id": "road-climb",
+    "head": [
+      0.3,
+      0.1,
+      0.6,
+      0.33
+    ],
     "src": "/assets/photos/road-climb.webp",
     "small": "/assets/photos/road-climb-small.webp",
     "width": 480,
@@ -155,6 +221,12 @@ export const photos=[
   },
   {
     "id": "race-dust",
+    "head": [
+      0.4,
+      0.1,
+      0.63,
+      0.24
+    ],
     "src": "/assets/photos/race-dust.webp",
     "small": "/assets/photos/race-dust-small.webp",
     "width": 1100,
@@ -169,6 +241,12 @@ export const photos=[
   },
   {
     "id": "rider-portrait",
+    "head": [
+      0.33,
+      0.05,
+      0.58,
+      0.28
+    ],
     "src": "/assets/photos/rider-portrait.webp",
     "small": "/assets/photos/rider-portrait-small.webp",
     "width": 1100,
@@ -183,6 +261,12 @@ export const photos=[
   },
   {
     "id": "race-moment",
+    "head": [
+      0.22,
+      0.15,
+      0.42,
+      0.33
+    ],
     "src": "/assets/photos/race-moment.webp",
     "small": "/assets/photos/race-moment-small.webp",
     "width": 750,
@@ -197,6 +281,12 @@ export const photos=[
   },
   {
     "id": "race-group",
+    "head": [
+      0.44,
+      0.29,
+      0.64,
+      0.42
+    ],
     "src": "/assets/photos/race-group.webp",
     "small": "/assets/photos/race-group-small.webp",
     "width": 1100,
@@ -211,6 +301,12 @@ export const photos=[
   },
   {
     "id": "hero-rock",
+    "head": [
+      0.42,
+      0.205,
+      0.59,
+      0.345
+    ],
     "src": "/assets/photos/hero-rock.webp",
     "small": "/assets/photos/hero-rock-small.webp",
     "width": 1600,
@@ -225,6 +321,12 @@ export const photos=[
   },
   {
     "id": "race-candid",
+    "head": [
+      0.34,
+      0.23,
+      0.64,
+      0.46
+    ],
     "src": "/assets/photos/race-candid.webp",
     "small": "/assets/photos/race-candid-small.webp",
     "width": 1100,
@@ -239,6 +341,12 @@ export const photos=[
   },
   {
     "id": "finish",
+    "head": [
+      0.39,
+      0.29,
+      0.63,
+      0.44
+    ],
     "src": "/assets/photos/finish.webp",
     "small": "/assets/photos/finish-small.webp",
     "width": 1100,
@@ -253,6 +361,12 @@ export const photos=[
   },
   {
     "id": "race-start",
+    "head": [
+      0.39,
+      0.08,
+      0.61,
+      0.48
+    ],
     "src": "/assets/photos/race-start.webp",
     "small": "/assets/photos/race-start-small.webp",
     "width": 1100,
@@ -267,6 +381,12 @@ export const photos=[
   },
   {
     "id": "race-rock",
+    "head": [
+      0.42,
+      0.12,
+      0.62,
+      0.31
+    ],
     "src": "/assets/photos/race-rock.webp",
     "small": "/assets/photos/race-rock-small.webp",
     "width": 1100,
@@ -278,9 +398,163 @@ export const photos=[
     "category": "racing",
     "position": "50% 43%",
     "source": "photo_2026-10-31_03-40-58.jpg"
+  },
+  {
+    "id": "event-certificates",
+    "head": [
+      0.16,
+      0.21,
+      0.85,
+      0.49
+    ],
+    "src": "/assets/photos/event-certificates.webp",
+    "small": "/assets/photos/event-certificates-small.webp",
+    "width": 1100,
+    "height": 1100,
+    "alt": [
+      "Cyclists holding certificates together at a competition event",
+      "دراجون يحملون شهادات معاً في حدث تنافسي"
+    ],
+    "category": "racing",
+    "position": "50% 35%",
+    "source": "photo_2026-10-31_12-59-18.jpg"
+  },
+  {
+    "id": "summit-sunset",
+    "head": [
+      0.38,
+      0.3,
+      0.56,
+      0.42
+    ],
+    "src": "/assets/photos/summit-sunset.webp",
+    "small": "/assets/photos/summit-sunset-small.webp",
+    "width": 1100,
+    "height": 1956,
+    "alt": [
+      "Moein with his mountain bike beside a trail sign at sunset",
+      "معین مع دراجته الجبلية بجانب لافتة مسار عند الغروب"
+    ],
+    "category": "portrait",
+    "position": "50% 40%",
+    "source": "photo_2026-10-31_12-59-36.jpg"
+  },
+  {
+    "id": "forest-technique",
+    "head": [
+      0.38,
+      0.36,
+      0.57,
+      0.5
+    ],
+    "src": "/assets/photos/forest-technique.webp",
+    "small": "/assets/photos/forest-technique-small.webp",
+    "width": 1100,
+    "height": 1652,
+    "alt": [
+      "Moein negotiating a bend on a forest trail",
+      "معین يتجاوز منعطفاً على مسار في الغابة"
+    ],
+    "category": "training",
+    "position": "50% 43%",
+    "source": "photo_2026-10-31_12-59-40.jpg"
+  },
+  {
+    "id": "national-kit",
+    "head": null,
+    "src": "/assets/photos/national-kit.webp",
+    "small": "/assets/photos/national-kit-small.webp",
+    "width": 1100,
+    "height": 1464,
+    "alt": [
+      "Detail of an Iran cycling jersey and its reflection",
+      "تفاصيل قميص دراجات إيران وانعكاسه في المرآة"
+    ],
+    "category": "behind",
+    "position": "70% 42%",
+    "source": "photo_2026-10-31_12-59-56.jpg"
+  },
+  {
+    "id": "technical-rock",
+    "head": [
+      0.56,
+      0.16,
+      0.78,
+      0.31
+    ],
+    "src": "/assets/photos/technical-rock.webp",
+    "small": "/assets/photos/technical-rock-small.webp",
+    "width": 1100,
+    "height": 1375,
+    "alt": [
+      "Moein controlling his mountain bike over rocky terrain",
+      "معین يتحكم بدراجته الجبلية فوق تضاريس صخرية"
+    ],
+    "category": "training",
+    "position": "50% 35%",
+    "source": "photo_2026-10-31_12-59-57.jpg"
+  },
+  {
+    "id": "technical-stairs",
+    "head": [
+      0.34,
+      0.18,
+      0.51,
+      0.32
+    ],
+    "src": "/assets/photos/technical-stairs.webp",
+    "small": "/assets/photos/technical-stairs-small.webp",
+    "width": 1100,
+    "height": 1375,
+    "alt": [
+      "Cyclists riding down stone steps during a technical riding session",
+      "دراجون يهبطون درجات حجرية أثناء ممارسة مهارات القيادة"
+    ],
+    "category": "training",
+    "position": "50% 35%",
+    "source": "photo_2026-10-31_12-59-59.jpg"
+  },
+  {
+    "id": "trail-duo",
+    "head": [
+      0.3,
+      0.24,
+      0.41,
+      0.33
+    ],
+    "src": "/assets/photos/trail-duo.webp",
+    "small": "/assets/photos/trail-duo-small.webp",
+    "width": 1100,
+    "height": 1376,
+    "alt": [
+      "Two cyclists riding a rocky hillside trail above the city",
+      "دراجان يقودان على مسار صخري فوق المدينة"
+    ],
+    "category": "training",
+    "position": "50% 38%",
+    "source": "photo_2026-10-31_13-00-01.jpg"
+  },
+  {
+    "id": "informal-balance",
+    "head": [
+      0.39,
+      0.15,
+      0.57,
+      0.28
+    ],
+    "src": "/assets/photos/informal-balance.webp",
+    "small": "/assets/photos/informal-balance-small.webp",
+    "width": 765,
+    "height": 1371,
+    "alt": [
+      "An informal bike-handling moment outdoors",
+      "لحظة عفوية لممارسة التحكم بالدراجة في الهواء الطلق"
+    ],
+    "category": "behind",
+    "position": "50% 40%",
+    "source": "photo_2026-10-31_13-00-06.jpg"
   }
 ];
+const order=['hero-rock','forest-technique','technical-rock','summit','event-certificates','technical-stairs','race-dust','summit-sunset','coach','trail-duo','race-candid','national-kit','finish'];
+photos.sort((a,b)=>{const ai=order.indexOf(a.id),bi=order.indexOf(b.id);return (ai<0?100:ai)-(bi<0?100:bi)});
 export const media=Object.fromEntries(photos.map(p=>[p.id,p]));
-
-const subjectBounds={"sunset": [0.3, 0.12, 0.87, 0.39], "coach": [0.2, 0.02, 0.78, 0.52], "trail": [0.04, 0.27, 0.55, 0.59], "summit": [0.25, 0.12, 0.49, 0.27], "forest-pause": [0.4, 0.26, 0.62, 0.4], "forest-ride": [0.43, 0.5, 0.6, 0.62], "road": [0.37, 0.25, 0.57, 0.4], "summit-mono": [0.34, 0.18, 0.51, 0.3], "training-ride": [0.34, 0.14, 0.61, 0.31], "summit-sign": [0.25, 0.25, 0.44, 0.37], "road-climb": [0.3, 0.1, 0.6, 0.33], "race-dust": [0.4, 0.1, 0.63, 0.24], "rider-portrait": [0.33, 0.05, 0.58, 0.28], "race-moment": [0.22, 0.15, 0.42, 0.33], "race-group": [0.44, 0.29, 0.64, 0.42], "hero-rock": [0.42, 0.205, 0.59, 0.345], "race-candid": [0.34, 0.23, 0.64, 0.46], "finish": [0.39, 0.29, 0.63, 0.44], "race-start": [0.39, 0.08, 0.61, 0.48], "race-rock": [0.42, 0.12, 0.62, 0.31]};
-photos.forEach(photo=>photo.head=subjectBounds[photo.id]);
