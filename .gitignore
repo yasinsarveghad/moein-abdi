@@ -1,0 +1,7 @@
+.env*
+!.env.example
+preview/
+research/*.png
+research/*.txt
+.local-data/
+node_modules/

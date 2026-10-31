@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';import {api} from '../worker/api.js';
+const store=new Map();const BUCKET={async put(k,v){store.set(k,v)},async get(k){const v=store.get(k);return v?{json:async()=>JSON.parse(v)}:null},async delete(k){store.delete(k)},async list({prefix=''}){return {objects:[...store.keys()].filter(k=>k.startsWith(prefix)).map(key=>({key})),truncated:false}}};const base='https://example.com';
+function req(url,method='GET',data,head={}){return new Request(base+url,{method,headers:{origin:base,'content-type':'application/json',...head},body:data?JSON.stringify(data):undefined})}
+const valid={name:'Test Rider',email:'rider@example.com',topic:'coaching',message:'I am interested in structured XC coaching.',consent:'on'};
+assert.equal((await api(req('/api/enquiries','POST',valid),{})).status,503);
+assert.equal((await api(req('/api/enquiries','POST',{...valid,email:'invalid'}),{BUCKET})).status,422);
+assert.equal((await api(req('/api/enquiries','POST',{...valid,website:'spam'}),{BUCKET})).status,422);
+assert.equal((await api(req('/api/enquiries','POST',valid,{origin:'https://evil.com'}),{BUCKET})).status,403);
+assert.equal((await api(req('/api/admin'),{BUCKET})).status,403);
+assert.equal((await api(req('/api/admin','GET',null,{'oai-authenticated-user-id':'other'}),{BUCKET,ADMIN_USER_ID:'owner'})).status,403);
+const r=await api(req('/api/enquiries','POST',valid),{BUCKET});assert.equal(r.status,201);assert.equal([...store.keys()].filter(k=>k.startsWith('enquiries/')).length,1);
+const owner={'oai-authenticated-user-id':'owner'};const env={BUCKET,ADMIN_USER_ID:'owner'};
+assert.equal((await api(req('/api/admin/credentials','POST',{uciId:'123',verification:'missing'},owner),env)).status,422);
+assert.equal((await api(req('/api/admin/credentials','POST',{uciId:'',verification:'missing',uciProfile:'javascript:alert(1)'},owner),env)).status,422);
+assert.equal((await api(req('/api/admin/credentials','POST',{uciId:'',verification:'missing'},owner),env)).status,200);
+const data=await (await api(req('/api/admin','GET',null,owner),env)).json();assert.equal(data.enquiries.length,1);assert.equal(data.credentials.verification,'missing');
+const id=data.enquiries[0].id;assert.equal((await api(req('/api/admin/enquiries/'+id,'DELETE',null,owner),env)).status,200);assert.equal((await (await api(req('/api/admin','GET',null,owner),env)).json()).enquiries.length,0);
+const draft={kind:'national-team',title:'Private test record',discipline:'XCO',verification:'athlete-reported'};assert.equal((await api(req('/api/admin/records','POST',draft,owner),env)).status,201);assert.equal((await (await api(req('/api/admin','GET',null,owner),env)).json()).records[0].published,false);
+for(let i=0;i<4;i++)assert.equal((await api(req('/api/enquiries','POST',valid),{BUCKET})).status,201);assert.equal((await api(req('/api/enquiries','POST',valid),{BUCKET})).status,429);
+console.log('API: validation, CSRF, authorization, storage, credentials, drafts, deletion, rate limits passed.');
