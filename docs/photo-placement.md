@@ -1,6 +1,6 @@
 # User photography selection — 31 October 2026
 
-Visual review completed from the eight attached conversation images. Original bytes have not been made available to the Linux workspace: the message contains Windows source paths only. Do not substitute generated photographs or claim deployment of these assets until originals arrive.
+Visual review completed from the eight attached conversation images. Original bytes were subsequently provided in a 20-photo ZIP and are now preserved under originals/. See photo-integration.md for the implemented selections.
 
 | Upload | Planned use | Composition |
 |---|---|---|

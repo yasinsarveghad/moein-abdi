@@ -5,3 +5,5 @@ research/*.png
 research/*.txt
 .local-data/
 node_modules/
+
+research/contact/

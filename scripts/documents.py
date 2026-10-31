@@ -14,7 +14,7 @@ W,H=595.28,841.89
 def make(filename,kit=False):
  c=canvas.Canvas(str(root/'src'/filename),pagesize=(W,H));c.setTitle('Moein Abdi | '+('Partnership Media Kit' if kit else 'Athletic CV'));c.setAuthor('Moein Abdi — prepared from supplied project information');
  c.setFillColor(HexColor('#101820'));c.rect(0,H-255,W,255,fill=1,stroke=0)
- c.setFillColor(HexColor('#e4eb29'));c.rect(42,H-62,8,24,fill=1,stroke=0);c.rect(54,H-69,8,38,fill=1,stroke=0);c.rect(66,H-59,8,18,fill=1,stroke=0)
+ c.drawImage(ImageReader(str(root/'src/moein-logo-print.png')),42,H-73,width=125,height=38,mask='auto',preserveAspectRatio=True)
  c.setFillColor(white);c.setFont('Helvetica-Bold',33);c.drawString(42,H-115,'MOEIN ABDI');c.setFont(body,12);c.drawString(42,H-144,'MTB Cross-Country Athlete & Cycling Coach');c.setFont('Helvetica-Bold',23);c.drawString(42,H-192,'Built for the Climb.');c.setFont(body,9);c.setFillColor(HexColor('#cdd4d8'));c.drawString(42,H-222,'PARTNERSHIP MEDIA KIT' if kit else 'ATHLETIC PROFILE / RECRUITMENT CV')
  y=H-295
  def section(title,lines):
