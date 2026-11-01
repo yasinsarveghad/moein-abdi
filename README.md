@@ -14,3 +14,5 @@ The supplied prompt ends midway through section 14. Twenty-eight original athlet
 R2 records: private credentials, private draft race/camp/performance records, and enquiries. Expired enquiries are removed by retention cleanup; no browser storage is used for enquiries. Admin can export and delete enquiries and create or delete draft records. Publication of verified content remains an editorial action, separate from private data entry.
 
 This runtime lacks the Sites plugin's local workflow helper. `scripts/sync-source.mjs` performs the documented Git source push with credentials in hidden stdin and subprocess environment only. Deployment packages are built from the committed Worker output with `.openai/hosting.json` at archive root.
+
+Appearance: shared light/dark themes with chartreuse sun/moon header switch, saved preference, system fallback and reduced-motion support. See docs/theme-system.md.
