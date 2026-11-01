@@ -1,9 +1,11 @@
 # Athlete award collection
 
-Achievements keeps its hero first, followed by the new trophy and medal collections. Existing results and national-team sections remain intact. The homepage medal collection sits between athlete background and journal sections.
+Achievements retains its hero, then the trophy and medal collections, followed by all previous content. The homepage medal collection remains between athlete background and journal sections.
 
-Three trophy cards show the supplied artwork in full; narrow screens use a horizontally swipeable gallery with previous/next controls. The medal component exposes all nine actual images, directional crossfades, wraparound navigation, touch gestures and keyboard arrows/Home/End. Rapid selection uses a revision guard to discard stale image loads. Native modal dialogs enlarge the selected object, trap focus, close with Escape, and restore focus to the opener. Reduced motion removes transitions; English/Arabic and both existing themes are supported.
+Trophies use a three-position carousel: the central card is full size and sharp; two smaller side cards are lightly blurred. Clicking a card, using navigation, swiping, or keyboard arrows/Home/End selects the central object. The medal selector uses nine large gray numbers, without thumbnails or a view button. Medal images blend with a directional offset and subtle blur over one second. Revision guards discard stale loads during rapid selection. Error states retain the previous image and offer retry.
 
-Original PNGs are preserved under originals/awards. scripts/awards.cjs trims only transparent margins and generates WebP images and thumbnails; no artwork is synthesized or recolored. Item names describe visible objects, without assigning unverified events, years or placings.
+Each visible collection advances after six seconds. Autoplay pauses while hovered, keyboard-focused, offscreen, or in a hidden browser tab. A minimal pause/play control preserves explicit user preference. Reduced-motion disables autoplay and transitions. Automatic changes do not generate live-region announcements. Both existing themes and English/Arabic are supported.
 
-Validation: research/awards-qa.cjs covers 20 viewport/language/theme combinations, section order, rapid selection, wraparound, keyboard navigation, modal images/focus and reduced-motion homepage. research/awards-edge-qa.cjs covers failed-image retry, swipe and every medal image.
+Original PNGs remain in originals/awards. scripts/awards.cjs only trims transparent margins and creates WebP delivery assets. Artwork and award claims are not synthesized.
+
+Validation: research/awards-qa.cjs checks 20 viewport/language/theme combinations, section placement, selectors, rapid switching, navigation, card depth, and reduced-motion homepage. research/awards-autoplay-qa.cjs covers timer advancement, wraparound, hover/offscreen pause and explicit pause/resume in English and Arabic. research/awards-edge-qa.cjs checks image failure/retry, swipe and all nine medal images.
