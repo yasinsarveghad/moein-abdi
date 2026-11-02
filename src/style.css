@@ -37,3 +37,6 @@
 /* New athlete photographs: technical riding, career archive and national-kit detail. */
 .archive-evidence{max-width:620px;margin-inline:auto}.archive-evidence .photo-tile{min-height:0;aspect-ratio:1;background:#fff}.archive-evidence img{object-fit:contain;object-position:center}.career-trail-photo .photo-tile{height:430px;min-height:0;margin-bottom:42px}.national-photo.kit-detail{height:570px;max-width:660px}.national-photo.kit-detail img{object-position:70% 38%}.kit-caption{max-width:660px;margin-inline:auto}.hero-visual.hero-photo-technical-rock>img{object-position:64% 13%}.hero-visual.hero-photo-forest-technique>img{object-position:50% 40%}
 @media(max-width:809px){.career-trail-photo .photo-tile{height:360px;margin-bottom:30px}.national-photo.kit-detail{height:480px}.hero-visual.hero-photo-technical-rock>img{object-position:64% 25%}.hero-visual.hero-photo-forest-technique>img{object-position:50% 45%}}
+/* This supplied square photograph contains white side borders. Keep them outside
+   the evidence frame while preserving all three faces at every viewport size. */
+.archive-evidence .photo-tile>img{transform:scale(1.36);transform-origin:50% 38%}
