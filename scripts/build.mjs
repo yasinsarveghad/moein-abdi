@@ -2,7 +2,7 @@ import fs from 'node:fs';import path from 'node:path';import {routes,pages,artic
 const root=new URL('..',import.meta.url).pathname;
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.webp':'image/webp','.woff2':'font/woff2','.ttf':'font/ttf','.pdf':'application/pdf','.xml':'application/xml','.txt':'text/plain'};
 const assets={};const add=(key,bytes,type)=>assets[key]={base64:Buffer.from(bytes).toString('base64'),type};
-for(const file of ['awards.js','awards.css','theme-init.js','theme.js','theme.css','app.js','content.js','interaction.js','crop.js','media.js','style.css','inter-regular.woff2','inter-semibold.woff2','arabic.ttf','favicon.svg'])add('/assets/'+file,fs.readFileSync(path.join(root,'src',file)),mime[path.extname(file)]);
+for(const file of ['liquid-nav.js','liquid-nav.css','awards.js','awards.css','theme-init.js','theme.js','theme.css','app.js','content.js','interaction.js','crop.js','media.js','style.css','inter-regular.woff2','inter-semibold.woff2','arabic.ttf','favicon.svg'])add('/assets/'+file,fs.readFileSync(path.join(root,'src',file)),mime[path.extname(file)]);
 
 for(const file of fs.readdirSync(path.join(root,'src/awards')))if(file.endsWith('.webp'))add('/assets/awards/'+file,fs.readFileSync(path.join(root,'src/awards',file)),mime['.webp']);
 for(const file of fs.readdirSync(path.join(root,'src/photos')))if(file.endsWith('.webp'))add('/assets/photos/'+file,fs.readFileSync(path.join(root,'src/photos',file)),mime['.webp']);

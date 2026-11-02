@@ -1,0 +1,35 @@
+/* Optical material and motion ported from Yasin concept-02; scoped to this dock. */
+.athlete-dock{--glass-ease:cubic-bezier(.22,.8,.2,1);position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:min(410px,calc(100vw - 28px));height:66px;z-index:45;transform:translate(-50%,28px) scale(.94);opacity:0;filter:blur(7px);visibility:hidden;pointer-events:none;transition:opacity .38s ease,transform .62s var(--glass-ease),filter .5s ease,visibility .62s}
+.athlete-dock[data-visible=true]{opacity:1;transform:translate(-50%,0) scale(1);filter:blur(0);visibility:visible;pointer-events:auto}
+.liquid-nav{position:relative;isolation:isolate;overflow:hidden;width:100%;height:66px;padding:6px;border:1px solid #00000008;border-radius:40px;background:#e5e5ea;color:#48484f;box-shadow:0 12px 32px -14px #17171c30,inset 0 1px 0 #ffffff90}
+.liquid-lens{position:absolute;left:0;top:6px;height:52px;border-radius:36px;background:linear-gradient(155deg,#ffffff16,#ffffff03 55%,#ffffff1f);border:1px solid #ffffffd0;backdrop-filter:saturate(1.3) contrast(1.04);-webkit-backdrop-filter:saturate(1.3) contrast(1.04);box-shadow:inset 0 2px 1px #fff,inset 1px 0 1px #ffffffc0,inset -1px 0 1px #ffffff8c,inset 0 -2px 2px #ffffffc0,0 1px 2px #36364240,0 5px 12px -5px #33333b36;transition:transform .62s var(--glass-ease),width .62s var(--glass-ease),border-color .48s,box-shadow .48s;pointer-events:none;z-index:0}
+.liquid-lens:before{content:'';position:absolute;inset:2px;border-radius:inherit;pointer-events:none;background:radial-gradient(ellipse at 8% 0%,#ffffffae,transparent 30%),radial-gradient(ellipse at 100% 110%,#ffffff80,transparent 32%);opacity:.65}
+.liquid-lens:after{content:'';position:absolute;inset:3px;border-radius:inherit;border-top:1px solid #ffffffa0;border-bottom:1px solid #77778322;box-shadow:inset 0 1px 3px #ffffff44;pointer-events:none}
+.liquid-nav-item{appearance:none;position:absolute;top:6px;left:0;height:52px;display:flex;align-items:center;justify-content:center;padding:0 10px;gap:0;border:0;border-radius:34px;background:transparent;color:inherit;font:inherit;font-size:13px;font-weight:500;min-width:0;z-index:1;cursor:pointer;text-decoration:none;transition:transform .62s var(--glass-ease),width .62s var(--glass-ease),color .3s,background .3s;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.liquid-nav-item .nav-icon{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:24px;height:24px}
+.liquid-nav-item svg,.athlete-more svg{display:block;width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.liquid-nav-item[data-selected=true]{color:#18181b}
+.liquid-nav-item:active{background:#ffffff18}
+.liquid-nav-item:focus-visible{outline:2px solid currentColor;outline-offset:-5px}
+.liquid-label{display:block;opacity:0;max-width:0;margin-inline-start:0;overflow:hidden;font-size:13px;line-height:1.4;white-space:nowrap;pointer-events:none;transition:max-width .62s var(--glass-ease),opacity .35s ease,margin .62s var(--glass-ease)}
+.liquid-label>span{display:block;width:max-content}
+.liquid-nav-item[data-selected=true] .liquid-label{max-width:150px;margin-inline-start:8px;opacity:1}
+.liquid-nav[data-ready=false] .liquid-lens{opacity:0}.liquid-nav[data-ready=false] .liquid-nav-item{transition:none}
+.athlete-more{position:fixed;inset:auto 0 calc(18px + env(safe-area-inset-bottom,0px));margin:0 auto;width:min(420px,calc(100vw - 24px));max-width:none;max-height:calc(100dvh - 36px);padding:0 20px 20px;overflow:auto;overscroll-behavior:contain;border-radius:34px;background:#f7f7f9;color:var(--ink);border:1px solid #ffffffd9;box-shadow:0 24px 80px #17171c30,inset 0 1px 0 #fff;--card-progress:1}
+.athlete-more::backdrop{background:rgb(30 30 36 / calc(var(--card-progress,1)*.15))}
+.dock-card-drag{height:35px;display:flex;align-items:center;justify-content:center;touch-action:none;cursor:grab}.dock-card-drag span{height:4px;width:34px;background:#c3c3cb;border-radius:4px}
+.dock-card-close{position:absolute;inset-inline-end:13px;top:15px;background:#e8e8ed;width:36px;height:36px;display:grid;place-items:center;border:0;border-radius:50%;color:#676772;cursor:pointer}
+.dock-card-close svg{width:16px;height:16px}
+.dock-panel-heading{text-align:center;padding:0 8px 24px}.dock-panel-heading img{display:block;margin:0 auto 20px;width:98px;height:28px;object-fit:contain}.dock-panel-heading h2{font-size:24px;line-height:1.2;font-weight:600;letter-spacing:-.6px;margin:0 0 8px}.dock-panel-heading p{font-size:13px;color:var(--muted);margin:0}
+.dock-more-links{display:grid;grid-template-columns:1fr 1fr;gap:8px}.dock-more-links a{display:flex;align-items:center;gap:10px;min-height:58px;padding:12px;border-radius:18px;background:#ededf1;color:#50505a;font-size:12px;line-height:1.4;border:1px solid transparent;text-decoration:none}.dock-more-links svg{width:21px;height:21px}.dock-more-links a[aria-current=page]{background:linear-gradient(155deg,#ffffffaa,#ffffff24);border-color:#fff;box-shadow:inset 0 1px 1px #fff,0 1px 3px #00000012;color:#17171b}.dock-more-links a:last-child:nth-child(odd){grid-column:1/-1;justify-content:center}
+.dock-card-done{display:block;background:#27272b;color:#fff;font:inherit;font-size:14px;font-weight:500;border:0;border-radius:24px;min-height:44px;width:100%;margin-top:16px;cursor:pointer}
+.athlete-more a:focus-visible,.athlete-more button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+[data-theme=dark] .liquid-nav{background:#3a3a3e;border-color:#ffffff12;color:#c7c7ce}[data-theme=dark] .liquid-nav-item[data-selected=true]{color:#fff}
+[data-theme=dark] .liquid-lens{background:linear-gradient(160deg,#ffffff19,#ffffff02 60%,#ffffff19);border-color:#ffffff55;box-shadow:inset 0 1px 1px #ffffff80,inset 0 -1px 1px #ffffff55,0 3px 6px #0005}
+[data-theme=dark] .athlete-more{background:#26262a;border-color:#ffffff35;box-shadow:0 24px 80px #0006,inset 0 1px 0 #ffffff25}[data-theme=dark] .dock-more-links a,[data-theme=dark] .dock-card-close{background:#333338;color:#e6e6eb}[data-theme=dark] .dock-more-links a[aria-current=page]{border-color:#ffffff44;background:#ffffff15}
+[dir=rtl] .dock-panel-heading h2{letter-spacing:0}
+@media(max-width:370px){.athlete-more{padding:0 16px 16px}.dock-more-links a{padding:10px;gap:8px;font-size:11px}.dock-panel-heading h2{font-size:22px}.liquid-label{font-size:12px}}
+@media(max-height:650px){.dock-panel-heading{padding-bottom:16px}.dock-panel-heading img{margin-bottom:12px}.dock-more-links a{min-height:46px;padding-block:8px}}
+@media(prefers-reduced-motion:reduce){.athlete-dock,.liquid-lens,.liquid-nav-item,.liquid-label{transition:none!important}}
+@media(prefers-contrast:more),(prefers-reduced-transparency:reduce){.liquid-nav,.athlete-more{background:var(--paper);color:var(--ink);border:1px solid var(--ink)}.liquid-lens{background:var(--surface);border-color:var(--ink);backdrop-filter:none;-webkit-backdrop-filter:none}.liquid-nav-item[data-selected=true]{color:var(--ink)}}
+@media print{.athlete-dock,.athlete-more{display:none!important}}

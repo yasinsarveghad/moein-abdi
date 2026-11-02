@@ -1,3 +1,4 @@
+import {liquidNavigation,initializeLiquidNavigation} from '/assets/liquid-nav.js';
 import {awardsSection,initializeAwards} from '/assets/awards.js';
 import {themeToggle,initializeTheme} from '/assets/theme.js';
 import {initializeSubjectCrops} from '/assets/crop.js';
@@ -95,7 +96,7 @@ const currentArticle=articles.find(a=>path==='/journal/'+a.slug);
 const currentPage=currentArticle?[[t(currentArticle.category),t(currentArticle.category)],[t(currentArticle.title),t(currentArticle.title)],[t(currentArticle.intro),t(currentArticle.intro)]]:pages[path]||pages['/404'];
 document.documentElement.lang=ar?'ar':'en';document.documentElement.dir=ar?'rtl':'ltr';
 document.title=path==='/'?t('Moein Abdi — Built for the Climb','معین عبدی — خُلِق للصعود'):`${t(currentPage[0])} — ${t('Moein Abdi','معین عبدی')}`;
-document.getElementById('app').innerHTML=header()+`<main id="main">${path==='/'?home():hero(currentPage)+(currentArticle?article(currentArticle):(bodies[path]||bodies['/404'])())}</main>`+footer();
+document.getElementById('app').innerHTML=header()+`<main id="main">${path==='/'?home():hero(currentPage)+(currentArticle?article(currentArticle):(bodies[path]||bodies['/404'])())}</main>`+footer()+(path==='/admin'?'':liquidNavigation(ar,path));
 // Navigation: accessible overlay with focus return and a keyboard trap.
 const menu=document.getElementById('mobile-menu'),toggle=document.querySelector('.menu-toggle');
 function closeMenu(){menu.classList.remove('is-open');setTimeout(()=>{if(!menu.classList.contains('is-open'))menu.hidden=true},matchMedia('(prefers-reduced-motion: reduce)').matches?0:300);toggle.setAttribute('aria-expanded','false');document.body.style.overflow='';toggle.focus()}
@@ -106,6 +107,7 @@ menu.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMenu();return}if(e
 document.addEventListener('click',e=>{document.querySelectorAll('.nav-disclosure[open]').forEach(x=>{if(!x.contains(e.target))x.open=false})});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.nav-disclosure').forEach(x=>x.open=false)});
 initializeTheme(ar);
+initializeLiquidNavigation(ar,path);
 initializeSubjectCrops();
 initializeLanguagePicker();
 initializeMotion();
