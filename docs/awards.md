@@ -2,7 +2,7 @@
 
 Achievements retains its hero, then the trophy and medal collections, followed by all previous content. The homepage medal collection remains between athlete background and journal sections.
 
-Trophies use a three-position carousel: the central card is full size and sharp; two smaller side cards are lightly blurred. Clicking a card, using navigation, swiping, or keyboard arrows/Home/End selects the central object. The medal selector uses nine large gray numbers, without thumbnails or a view button. Medal images blend with a directional offset and subtle blur over one second. Revision guards discard stale loads during rapid selection. Error states retain the previous image and offer retry.
+Trophies use a three-position carousel: the central card is full size and sharp; two smaller side cards are lightly blurred. Clicking a card, using navigation, swiping, or keyboard arrows/Home/End selects the central object. The medal selector uses nine large gray numbers (1–9) in circular selectors, without thumbnails or a view button. Medal images blend with a directional offset and subtle blur over 450ms. Revision guards discard stale loads during rapid selection. Error states retain the previous image and offer retry.
 
 Each visible collection advances after six seconds. Autoplay pauses while hovered, keyboard-focused, offscreen, or in a hidden browser tab. A minimal pause/play control preserves explicit user preference. Reduced-motion disables autoplay and transitions. Automatic changes do not generate live-region announcements. Both existing themes and English/Arabic are supported.
 

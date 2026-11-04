@@ -11,8 +11,8 @@
 .award-details{align-self:center;padding:24px 24px 24px 0;min-width:0}
 .award-details h3{font-size:30px;letter-spacing:-.04em;margin:0 0 12px}
 .award-details p{font-size:15px;color:var(--muted);line-height:1.6}
-.award-selectors{display:grid;grid-template-columns:repeat(3,minmax(44px,1fr));gap:8px;margin:28px 0}
-.award-selectors button{display:grid;place-items:center;border:1px solid var(--line);background:transparent;color:var(--muted);min-height:64px;border-radius:12px;font:inherit;font-size:25px;font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:-.04em;cursor:pointer;transition:background .45s,color .45s,transform .45s,border-color .45s}
+.award-selectors{display:grid;grid-template-columns:repeat(3,minmax(44px,64px));justify-content:space-between;max-width:320px;gap:12px;margin:28px 0}
+.award-selectors button{display:grid;place-items:center;border:1px solid var(--line);background:transparent;color:var(--muted);width:100%;aspect-ratio:1;min-height:44px;padding:0;border-radius:50%;font:inherit;font-size:25px;font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:-.04em;cursor:pointer;transition:background .2s,color .2s,transform .2s,border-color .2s}
 .award-selectors button[aria-pressed=true]{background:var(--award-accent);color:#444;border-color:var(--award-accent)}
 .award-controls{display:flex;justify-content:space-between;align-items:center;margin:24px 0 0}
 .award-count{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;direction:ltr}

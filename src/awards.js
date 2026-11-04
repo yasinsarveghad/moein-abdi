@@ -7,17 +7,17 @@ export const awardItems = {
     {id:'trophy-3', title:['The cycling trophy','كأس الدراجات']},
     {id:'trophy-1', title:['The victory statuette','تمثال النصر']}
   ],
-  medals: Array.from({length:9}, (_, i) => ({id:`medal-${i+1}`, title:[`Medal ${number(i)}`,`الميدالية ${number(i)}`]}))
+  medals: Array.from({length:9}, (_, i) => ({id:`medal-${i+1}`, title:[`Medal ${i+1}`,`الميدالية ${i+1}`]}))
 };
 const arrow = direction => `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="${direction<0?'M15 6l-6 6 6 6':'M9 6l6 6-6 6'}" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const awardImage = (item, ar) => `<img src="${src(item.id)}" alt="${item.title[ar?1:0]}" loading="lazy" decoding="async" width="760" height="880" draggable="false">`;
 const pauseIcon = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6v12M15 6v12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
 const playIcon = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 9 6-9 6V6Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>';
-function controls(ar, length, initial=0){const t=choose(ar);return `<div class="award-controls"><output class="award-count" aria-live="off">${number(initial)} / ${number(length-1)}</output><div><button type="button" class="award-playback" data-award-playback aria-pressed="false" aria-label="${t('Pause slideshow','إيقاف العرض التلقائي')}">${pauseIcon}</button><button type="button" data-award-step="-1" aria-label="${t('Previous award','الجائزة السابقة')}">${arrow(-1)}</button><button type="button" data-award-step="1" aria-label="${t('Next award','الجائزة التالية')}">${arrow(1)}</button></div></div>`;}
+function controls(ar, length, initial=0, plain=false){const t=choose(ar);return `<div class="award-controls"><output class="award-count" aria-live="off">${plain?initial+1:number(initial)} / ${plain?length:number(length-1)}</output><div><button type="button" class="award-playback" data-award-playback aria-pressed="false" aria-label="${t('Pause slideshow','إيقاف العرض التلقائي')}">${pauseIcon}</button><button type="button" data-award-step="-1" aria-label="${t('Previous award','الجائزة السابقة')}">${arrow(-1)}</button><button type="button" data-award-step="1" aria-label="${t('Next award','الجائزة التالية')}">${arrow(1)}</button></div></div>`;}
 export function awardsSection(kind, ar=false){
   const t=choose(ar),medal=kind==='medals',items=awardItems[kind];
-  const header=`<div class="awards-heading"><div><span class="awards-eyebrow">${t('The collection','المجموعة')}</span><h2>${t(medal?'Every effort. A milestone.':'Recognition, earned.',medal?'كل جهد. إنجاز.':'تكريم يستحقه الجهد.')}</h2></div><span class="awards-total">${items.length.toString().padStart(2,'0')} ${t(medal?'medals':'trophies',medal?'ميداليات':'كؤوس')}</span></div>`;
-  const body=medal?`<div class="award-collector"><div class="award-stage" aria-busy="false"><div class="award-object">${awardImage(items[0],ar)}</div></div><div class="award-details"><span class="awards-eyebrow">${t('Moein Abdi','معین عبدی')}</span><h3>${t('Medal collection','مجموعة الميداليات')}</h3><p>${t('Nine medals. Each with its own story.','تسع ميداليات. لكل واحدة حكايتها.')}</p><div class="award-selectors" role="group" aria-label="${t('Choose a medal','اختر ميدالية')}">${items.map((item,i)=>`<button type="button" data-award-index="${i}" aria-pressed="${i===0}" aria-label="${item.title[ar?1:0]}"><span>${number(i)}</span></button>`).join('')}</div>${controls(ar,items.length)}</div></div>`:
+  const header=`<div class="awards-heading"><div><span class="awards-eyebrow">${t('The collection','المجموعة')}</span><h2>${t(medal?'Every effort. A milestone.':'Recognition, earned.',medal?'كل جهد. إنجاز.':'تكريم يستحقه الجهد.')}</h2></div><span class="awards-total">${medal?items.length:items.length.toString().padStart(2,'0')} ${t(medal?'medals':'trophies',medal?'ميداليات':'كؤوس')}</span></div>`;
+  const body=medal?`<div class="award-collector"><div class="award-stage" aria-busy="false"><div class="award-object">${awardImage(items[0],ar)}</div></div><div class="award-details"><span class="awards-eyebrow">${t('Moein Abdi','معین عبدی')}</span><h3>${t('Medal collection','مجموعة الميداليات')}</h3><p>${t('Nine medals. Each with its own story.','تسع ميداليات. لكل واحدة حكايتها.')}</p><div class="award-selectors" role="group" aria-label="${t('Choose a medal','اختر ميدالية')}">${items.map((item,i)=>`<button type="button" data-award-index="${i}" aria-pressed="${i===0}" aria-label="${item.title[ar?1:0]}"><span>${i+1}</span></button>`).join('')}</div>${controls(ar,items.length,0,true)}</div></div>`:
   `<div class="trophy-gallery" role="group" aria-roledescription="${t('carousel','عرض شرائح')}" aria-label="${t('Three trophies','ثلاثة كؤوس')}">${items.map((item,i)=>`<article class="trophy-card" data-trophy-index="${i}" data-slot="${i-1}" role="button" tabindex="0" aria-pressed="${i===1}" aria-label="${item.title[ar?1:0]}"><div class="trophy-image">${awardImage(item,ar)}</div><div class="trophy-caption"><span class="awards-eyebrow">${t('Trophy','كأس')} ${number(i)}</span><h3>${item.title[ar?1:0]}</h3></div></article>`).join('')}</div><div class="trophy-navigation">${controls(ar,items.length,1)}</div>`;
   return `<section class="section awards-section" data-awards="${kind}" aria-label="${t(medal?'Medal collection':'Trophy collection',medal?'مجموعة الميداليات':'مجموعة الكؤوس')}"><div class="wrap">${header}${body}</div></section>`;
 }
@@ -37,7 +37,7 @@ export function initializeAwards(ar=false){
     };
     const setControls=(automatic=false)=>{
       count.setAttribute('aria-live',automatic?'off':'polite');
-      count.textContent=`${number(selected)} / ${number(items.length-1)}`;
+      count.textContent=stage?`${selected+1} / ${items.length}`:`${number(selected)} / ${number(items.length-1)}`;
       selectors.forEach((b,i)=>b.setAttribute('aria-pressed',String(i===selected)));
       cards.forEach((card,i)=>{
         const relative=(i-selected+items.length)%items.length;
@@ -63,9 +63,9 @@ export function initializeAwards(ar=false){
       layers.forEach(n=>n.remove());previous?.getAnimations().forEach(a=>a.cancel());
       const node=document.createElement('div');node.className='award-object';node.append(img);stage.append(node);stage.setAttribute('aria-busy','false');
       if(reduced()){previous?.remove();schedule();return;}
-      const offset=direction*(ar?-1:1)*52;
-      const incoming=node.animate([{opacity:0,transform:`translate3d(${offset}px,8px,0) scale(.96)`,filter:'blur(4px)'},{opacity:1,transform:'translate3d(0,0,0) scale(1)',filter:'blur(0px)'}],{duration:1000,easing:'cubic-bezier(.22,1,.36,1)'});
-      previous?.animate([{opacity:1,transform:'translate3d(0,0,0) scale(1)',filter:'blur(0px)'},{opacity:0,transform:`translate3d(${-offset*.65}px,-4px,0) scale(.96)`,filter:'blur(3px)'}],{duration:550,easing:'cubic-bezier(.4,0,.2,1)',fill:'forwards'});
+      const offset=direction*(ar?-1:1)*32;
+      const incoming=node.animate([{opacity:0,transform:`translate3d(${offset}px,8px,0) scale(.96)`,filter:'blur(2px)'},{opacity:1,transform:'translate3d(0,0,0) scale(1)',filter:'blur(0px)'}],{duration:450,easing:'cubic-bezier(.22,1,.36,1)'});
+      previous?.animate([{opacity:1,transform:'translate3d(0,0,0) scale(1)',filter:'blur(0px)'},{opacity:0,transform:`translate3d(${-offset*.65}px,-4px,0) scale(.96)`,filter:'blur(3px)'}],{duration:220,easing:'cubic-bezier(.4,0,.2,1)',fill:'forwards'});
       incoming.finished.then(()=>previous?.remove()).catch(()=>previous?.remove());schedule();
     }
     root.addEventListener('click',e=>{
