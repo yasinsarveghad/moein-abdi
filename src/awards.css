@@ -11,8 +11,8 @@
 .award-details{align-self:center;padding:24px 24px 24px 0;min-width:0}
 .award-details h3{font-size:30px;letter-spacing:-.04em;margin:0 0 12px}
 .award-details p{font-size:15px;color:var(--muted);line-height:1.6}
-.award-selectors{display:grid;grid-template-columns:repeat(3,minmax(44px,64px));justify-content:space-between;max-width:320px;gap:12px;margin:28px 0}
-.award-selectors button{display:grid;place-items:center;border:1px solid var(--line);background:transparent;color:var(--muted);width:100%;aspect-ratio:1;min-height:44px;padding:0;border-radius:50%;font:inherit;font-size:25px;font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:-.04em;cursor:pointer;transition:background .2s,color .2s,transform .2s,border-color .2s}
+.award-selectors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));justify-items:center;gap:12px;margin:28px 0}
+.award-selectors button{display:grid;place-items:center;border:1px solid var(--line);background:transparent;color:var(--muted);width:min(100%,96px);aspect-ratio:1;min-height:44px;padding:0;border-radius:50%;font:inherit;font-size:30px;font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:-.04em;cursor:pointer;transition:background .2s,color .2s,transform .2s,border-color .2s}
 .award-selectors button[aria-pressed=true]{background:var(--award-accent);color:#444;border-color:var(--award-accent)}
 .award-controls{display:flex;justify-content:space-between;align-items:center;margin:24px 0 0}
 .award-count{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;direction:ltr}
@@ -39,3 +39,5 @@
 @media(max-width:809px){.trophy-card{width:44%;padding:12px}.trophy-image{height:280px;padding:20px}.trophy-gallery{height:430px}.award-collector{gap:24px}.award-stage{height:440px}.award-object{padding:24px}.award-details h3{font-size:26px}}
 @media(max-width:650px){.awards-heading{align-items:start;margin-bottom:24px;gap:16px}.awards-total{font-size:12px;margin-top:8px}.award-collector{grid-template-columns:1fr;gap:20px;padding:16px;border-radius:24px}.award-stage{height:340px}.award-object{padding:24px 36px}.award-details{padding:8px!important}.award-details h3{font-size:26px}.award-selectors{margin:24px 0}.trophy-gallery{height:430px;margin-inline:-16px}.trophy-card{width:72%;padding:12px;border-radius:24px;top:16px}.trophy-card[data-slot="-1"]{transform:translateX(calc(-50% - 79% * var(--trophy-direction))) scale(.72)}.trophy-card[data-slot="1"]{transform:translateX(calc(-50% + 79% * var(--trophy-direction))) scale(.72)}.trophy-image{height:290px;padding:24px}.trophy-caption{padding:20px 4px 8px}.trophy-caption h3{font-size:17px}.trophy-navigation{max-width:none}.trophy-navigation .award-controls{margin-top:0}}
 @media(prefers-reduced-motion:reduce){.awards-section button,.trophy-card{transition:none!important}.award-object{will-change:auto}.award-playback{display:none!important}}
+
+@media(max-width:650px){.award-selectors{gap:12px}.award-selectors button{width:min(100%,120px);font-size:clamp(27px,5vw,36px)}}
